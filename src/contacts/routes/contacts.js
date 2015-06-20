@@ -37,13 +37,10 @@ router.post('/', function(req, res, next) {
 });
 router.put('/:id', function(req, res, next) {
   var ID=parseInt(req.params.id);
-  //console.log("id=");
-  //console.log(ID);
    var obj1=contacts[+(req.params.id)];//.firstName=req.body.id
    var obj2=req.body;
    for(var i in obj2)
    	obj1[i]=obj2[i];
-  // res.json(contacts[+(req.params.id)]); //.firstName
    var string=JSON.stringify(obj1);
   fs.writeFile("C:\\dist\\spec\\tests\\data\\" + ID + "-Contact.json", string, function (err) {
         if (err) throw err;
